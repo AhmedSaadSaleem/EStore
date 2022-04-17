@@ -1,0 +1,31 @@
+<?php
+
+$_['direction'] = 'rtl';
+$_['text_app_name'] = 'المخزن الإلكتروني';
+$_['text_home'] = 'الصفحة الرئيسية';
+$_['text_change_language'] = 'تغيير اللغة';
+$_['text_user_welcome'] = 'مرحباً';
+$_['text_store'] = 'المخزن';
+$_['text_store_categories'] = 'أقسام المنتجات';
+$_['text_store_products'] = 'المنتجات';
+$_['text_clients'] = 'العملاء';
+$_['text_suppliers'] = 'الموردين';
+$_['text_expenses'] = 'المصروفات';
+$_['text_expenses_categories'] = 'أنواع المصروفات';
+$_['text_expenses_daily_expenses'] = 'المصروفات اليومية';
+$_['text_transactions'] = 'المعاملات';
+$_['text_transactions_purchases'] = 'المشتريات';
+$_['text_transactions_sales'] = 'المبيعات';
+$_['text_users'] = 'المستخدمين';
+$_['text_users_list'] = 'قائمة المستخدمين';
+$_['text_users_groups'] = 'مجموعات المستخدمين';
+$_['text_users_privileges'] = 'الصلاحيات';
+$_['text_reports'] = 'التقارير';
+$_['text_notifications'] = 'التنبيهات';
+$_['text_portfolios'] = 'الأعمال';
+$_['text_about'] = 'من أنا';
+$_['text_contact'] = 'أتصل بنا';
+$_['text_logout'] = 'تسجيل الخروج';
+$_['text_dashboard'] = 'اللوحة الرئيسية';
+$_['text_not_found'] = 'هذه الصفحة غير موجودة';
+$_['text_access_denied'] = 'عفواً أنت لا تمتلك صلاحية الوصول لهذه الصفحة';

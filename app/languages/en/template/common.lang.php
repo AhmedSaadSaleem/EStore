@@ -1,0 +1,31 @@
+<?php
+
+$_['direction'] = 'ltr';
+$_['text_app_name'] = 'Electronic Store';
+$_['text_home'] = 'Home';
+$_['text_change_language'] = 'Change Language';
+$_['text_user_welcome'] = 'Welcome';
+$_['text_store'] = 'Store';
+$_['text_store_categories'] = 'Product Categiries';
+$_['text_store_products'] = 'Products';
+$_['text_clients'] = 'Clients';
+$_['text_suppliers'] = 'Suppliers';
+$_['text_expenses'] = 'Expenses';
+$_['text_expenses_categories'] = 'Expenses Categories';
+$_['text_expenses_daily_expenses'] = 'Daily Expenses';
+$_['text_transactions'] = 'Transactions';
+$_['text_transactions_purchases'] = 'Purchases';
+$_['text_transactions_sales'] = 'Sales';
+$_['text_users'] = 'Users';
+$_['text_users_list'] = 'Users List';
+$_['text_users_groups'] = 'Users Groups';
+$_['text_users_privileges'] = 'Privileges';
+$_['text_reports'] = 'Reports';
+$_['text_notifications'] = 'Notifications';
+$_['text_portfolios'] = 'Portfolios';
+$_['text_about'] = 'About';
+$_['text_contact'] = 'Contact';
+$_['text_logout'] = 'Logout';
+$_['text_dashboard'] = 'Dashboard';
+$_['text_not_found'] = 'Page not found';
+$_['text_access_denied'] = 'Sorry, you don\'t have sufficient privileges to access this page';
