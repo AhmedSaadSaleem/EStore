@@ -24,9 +24,6 @@ body {
     font-family: 'Cairo', sans-serif;
 }
 
-.child {
-    font-size: 24px;
-}
 
 .parent {
     background-color: #eee;
