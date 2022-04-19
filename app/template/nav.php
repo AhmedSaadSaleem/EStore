@@ -9,7 +9,7 @@
                     <a class="<?= $this->matchUrl('/store') ? 'selected' : '' ?>" href="/store" traget=""><i class="fa-solid fa-shop"></i> <?= $text_store ?></a>
                     <ul class="branch">
                         <li><a class="<?= $this->matchUrl('/categories') ? 'selected' : '' ?>" href="/productcategories" traget=""><?= $text_store_categories ?></a></li>
-                        <li><a class="<?= $this->matchUrl('/products') ? 'selected' : '' ?>" href="/products" traget=""><?= $text_store_products ?></a></li>
+                        <li><a class="<?= $this->matchUrl('/productlist') ? 'selected' : '' ?>" href="/productlist" traget=""><?= $text_store_products ?></a></li>
                     </ul>
                 </li>
                 <li><a class="<?= $this->matchUrl('/clients') ? 'selected' : '' ?>" href="/clients" traget=""><i class="fa-solid fa-users"></i> <?= $text_clients ?></a></li>
@@ -27,17 +27,19 @@
         </div>
     </div>
 </nav>
-<div class="messages">
-    <div class="container">
-        <?php 
-            $messages = $this->messenger->getMessages();
-            if(!empty($messages)){
-                foreach($messages as $message){?>
-                    <p class="message t<?= $message[1] ?>"><?= $message[0] ?></p>
-        <?php 
+<div class="container">
+    <div class="messages">
+        <div class="container">
+            <?php 
+                $messages = $this->messenger->getMessages();
+                if(!empty($messages)){
+                    foreach($messages as $message){?>
+                        <p class="message t<?= $message[1] ?>"><?= $message[0] ?></p>
+            <?php 
+                    }
                 }
-            }
-        ?>
-            
+            ?>
+                
+        </div>
     </div>
 </div>
