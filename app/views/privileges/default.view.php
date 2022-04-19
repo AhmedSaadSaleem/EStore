@@ -1,4 +1,4 @@
-<div class="container no-padding">
+<div class="container">
     <a href="/privileges/create" class="button"><?= $text_add_item ?></a>
     <table class="data-table">
         <head>
