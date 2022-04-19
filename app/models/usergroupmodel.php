@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class UserGroupModel extends abstractModel
+class UserGroupModel extends AbstractModel
 {
-
     public $GroupId;
     public $GroupName;
 

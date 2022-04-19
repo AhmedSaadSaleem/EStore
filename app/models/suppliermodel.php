@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class SupplierModel extends abstractModel
+class SupplierModel extends AbstractModel
 {
-
     public $SupplierId;
     public $Name;
     public $PhoneNumber;

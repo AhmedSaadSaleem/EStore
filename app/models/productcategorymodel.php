@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class ProductCategoryModel extends abstractModel
+class ProductCategoryModel extends AbstractModel
 {
-
     public $CategoryId;
     public $Name;
     public $Image;

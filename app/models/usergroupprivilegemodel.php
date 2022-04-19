@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class UserGroupPrivilegeModel extends abstractModel
+class UserGroupPrivilegeModel extends AbstractModel
 {
-
     public $Id;
     public $GroupId;
     public $PrivilegeId;

@@ -5,9 +5,8 @@ namespace PHPMVC\Models;
 use PDOException;
 use PHPMVC\Lib\Database\DatabaseHandler;
 
-class abstractModel
+class AbstractModel
 {
-
     const DATA_TYPE_BOOL    = \PDO::PARAM_BOOL;
     const DATA_TYPE_STR     = \PDO::PARAM_STR;
     const DATA_TYPE_INT     = \PDO::PARAM_INT;

@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class UserModel extends abstractModel
+class UserModel extends AbstractModel
 {
-
     public $UserId;
     public $UserName;
     public $Password;

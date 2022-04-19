@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class PrivilegeModel extends abstractModel
+class PrivilegeModel extends AbstractModel
 {
-
     public $PrivilegeId;
     public $PrivilegeTitle;
     public $Privilege;

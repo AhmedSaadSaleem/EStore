@@ -2,9 +2,8 @@
 
 namespace PHPMVC\Models;
 
-class ClientModel extends abstractModel
+class ClientModel extends AbstractModel
 {
-
     public $ClientId;
     public $Name;
     public $PhoneNumber;
