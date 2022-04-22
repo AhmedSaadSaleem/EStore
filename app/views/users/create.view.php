@@ -39,7 +39,7 @@
             <option value=""><?= $text_user_GroupId ?></option>
                 <?php if($goups !== false){ ?>
                 <?php foreach($groups as $group){ ?>
-                    <option value="<?= $group->GroupId ?>"><?= $group->GroupName ?></option>
+                    <option value="<?= $group->GroupId ?>" <?= $this->selectedIF('GroupId', $group->GroupId) ?>><?= $group->GroupName ?></option>
                 <?php
                       }
                     } else {
