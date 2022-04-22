@@ -10,7 +10,7 @@
             <label for="Image"><?= $text_label_Image ?></label>
             <input type="file" name="Image" accept="image/*" id="Image" maxlength="30">
         </div>
-        <?php if($category->Image !== ''){ ?>
+        <?php if($category->Image !== null){ ?>
             <div class="input-wrapper">
                 <img src="/uploads/images/<?= $category->Image ?>" width="10%">
             </div>
