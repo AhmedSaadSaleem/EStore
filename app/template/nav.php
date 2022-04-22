@@ -8,7 +8,7 @@
                 <li>
                     <a class="<?= $this->matchUrl('/store') ? 'selected' : '' ?>" href="/store" traget=""><i class="fa-solid fa-shop"></i> <?= $text_store ?></a>
                     <ul class="branch">
-                        <li><a class="<?= $this->matchUrl('/categories') ? 'selected' : '' ?>" href="/productcategories" traget=""><?= $text_store_categories ?></a></li>
+                        <li><a class="<?= $this->matchUrl('/productcategories') ? 'selected' : '' ?>" href="/productcategories" traget=""><?= $text_store_categories ?></a></li>
                         <li><a class="<?= $this->matchUrl('/productlist') ? 'selected' : '' ?>" href="/productlist" traget=""><?= $text_store_products ?></a></li>
                     </ul>
                 </li>
