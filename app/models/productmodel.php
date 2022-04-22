@@ -9,7 +9,8 @@ class ProductModel extends AbstractModel
     public $Name;
     public $Image;
     public $Quantity;
-    public $Price;
+    public $BuyPrice;
+    public $SellPrice;
     public $Unit;
     public $BarCode;
 
@@ -21,10 +22,19 @@ class ProductModel extends AbstractModel
         'Name'            => self::DATA_TYPE_STR,
         'Image'           => self::DATA_TYPE_STR,
         'Quantity'        => self::DATA_TYPE_INT,
-        'Price'           => self::DATA_TYPE_DECIMAL,
+        'BuyPrice'           => self::DATA_TYPE_DECIMAL,
+        'SellPrice'           => self::DATA_TYPE_DECIMAL,
         'Unit'            => self::DATA_TYPE_INT,
         'BarCode'         => self::DATA_TYPE_STR
     );
 
     protected static $primaryKey = 'ProductId';
+
+    public static function getAll()
+    {
+        $sql = 'SELECT apl.*, apc.Name CategoryName FROM ' . self::$tableName . ' apl ';
+        $sql .= 'INNER JOIN ' . ProductCategoryModel::getModelTableName() . ' apc ';
+        $sql .= 'ON apc.CategoryId = apl.CategoryId';
+        return self::get($sql);
+    }
 }
