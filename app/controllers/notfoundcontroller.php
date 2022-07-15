@@ -4,7 +4,7 @@ namespace PHPMVC\Controllers;
 
 class notFoundController extends AbstractController
 {
-    public function notFoundAction()
+    public function notFoundAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('notfound.notfound');

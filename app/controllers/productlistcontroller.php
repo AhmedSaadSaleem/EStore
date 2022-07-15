@@ -20,7 +20,7 @@ class ProductListController extends AbstractController
         'Unit'           => 'req|num'
     ];
 
-    public function defaultAction()
+    public function defaultAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('productlist.default');
@@ -28,7 +28,7 @@ class ProductListController extends AbstractController
         $this->_view();
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('productlist.create');
@@ -78,7 +78,7 @@ class ProductListController extends AbstractController
         $this->_view();
     }
 
-    public function editAction()
+    public function editAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
         $product = ProductModel::getByKey($id);
@@ -135,7 +135,7 @@ class ProductListController extends AbstractController
         $this->_view();
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
         $product = ProductModel::getByKey($id);

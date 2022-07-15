@@ -27,7 +27,7 @@ class FrontController
         $this->_parseUrl();
     }
 
-    private function _parseUrl()
+    private function _parseUrl(): void
     {
         $url = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'), 3);
 
@@ -42,7 +42,7 @@ class FrontController
         }
     }
 
-    public function dispatch()
+    public function dispatch(): void
     {
         $controllerClassName = 'PHPMVC\Controllers\\' . ucfirst($this->_controller) . 'Controller';
         $actionName = $this->_action . 'Action';

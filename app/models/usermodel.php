@@ -36,19 +36,19 @@ class UserModel extends AbstractModel
 
     protected static $primaryKey = 'UserId';
     
-    public function cryptPassword($Password)
+    public function cryptPassword($Password): void
     {
         $this->Password = crypt($Password, APP_SALT);
     }
 
-    public static function getUsers(UserModel $user)
+    public static function getUsers(UserModel $user): array|false
     {
         return self::get(
             'SELECT au.*, aug.GroupName GroupName From ' . self::$tableName . ' au INNER JOIN ' . UserGroupModel::getModelTableName() . ' aug ON aug.GroupId = au.GroupId WHERE au.UserID != "' . $user->UserId . '"' 
         );
     }
 
-    public static function authenticate($userName, $password, $session)
+    public static function authenticate($userName, $password, $session): int|false
     {
         $password = crypt($password, APP_SALT);
         $sql = 'SELECT *, (SELECT GroupName FROM ' . UserGroupModel::getModelTableName() . ' WHERE GroupId = ' . self::$tableName . '.GroupId) GroupName FROM ' . self::$tableName . ' WHERE UserName = "' . $userName . '" AND password = "' . $password . '"';
@@ -68,17 +68,17 @@ class UserModel extends AbstractModel
         return false;
     }
 
-    public static function userExists($UserName)
+    public static function userExists($UserName): array|false
     {
         return self::getBy(['UserName' => $UserName]);
     }
 
-    public static function emailExists($Email)
+    public static function emailExists($Email): array|false
     {
         return self::getBy(['Email' => $Email]);
     }
 
-    public static function phoneNumberExists($PhoneNumber)
+    public static function phoneNumberExists($PhoneNumber): array|false
     {
         return self::getBy(['PhoneNumber' => $PhoneNumber]);
     }

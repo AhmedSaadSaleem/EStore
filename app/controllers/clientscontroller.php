@@ -15,7 +15,7 @@ class ClientsController extends AbstractController
         'Address'       => 'req|address|max(50)'
     ];
 
-    public function defaultAction()
+    public function defaultAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('clients.default');
@@ -23,7 +23,7 @@ class ClientsController extends AbstractController
         $this->_view();
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('clients.create');
@@ -60,7 +60,7 @@ class ClientsController extends AbstractController
         $this->_view();
     }
 
-    public function editAction()
+    public function editAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 
@@ -73,9 +73,9 @@ class ClientsController extends AbstractController
         $this->_data['client'] = $client;
 
         $this->language->load('template.common');
-        $this->language->load('Clients.edit');
-        $this->language->load('Clients.labels');
-        $this->language->load('Clients.messages');
+        $this->language->load('clients.edit');
+        $this->language->load('clients.labels');
+        $this->language->load('clients.messages');
         $this->language->load('validation.errors');
 
         if(isset($_POST['submit']) && $this->isValid($this->_createActionRoles, $_POST)){
@@ -96,7 +96,7 @@ class ClientsController extends AbstractController
         $this->_view();
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 

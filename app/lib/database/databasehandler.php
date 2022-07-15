@@ -2,6 +2,8 @@
 
 namespace PHPMVC\Lib\Database;
 
+use mysqli;
+
 abstract class DatabaseHandler
 {
 
@@ -16,7 +18,7 @@ abstract class DatabaseHandler
     abstract protected static function init();
     abstract protected static function getInstance();
 
-    public static function factory()
+    public static function factory(): \PDO|mysqli
     {
         $driver = DATABASE_CONN_DRIVER;
         if($driver == self::DATABASE_DRIVER_PDO){

@@ -26,22 +26,24 @@ class FileUpload
         $this->tmpPath = $file['tmp_name'];
     }
 
-    private function name($name)
+    private function name($name): string
     {
         preg_match_all('/([a-z]{1,4})$/i', $name, $m);
         $this->fileExtension = $m[0][0];
-        $name = substr(strtolower(base64_encode($name . APP_SALT)), 0, 30);
+        $name = strtolower(base64_encode($name . APP_SALT));
+        $name .= str_replace(['-', ':', ' '], '', date('y-m-d H:i:s'));
+        $name = substr($name, 0, 30);
         $name = preg_replace('/(\w{6})/i', '$1_', $name);
         $name = rtrim($name, '_');
         return $name;
     }
 
-    private function isAllowedType()
+    private function isAllowedType(): bool
     {
         return in_array($this->fileExtension, $this->allowedExtensions);
     }
 
-    private function isSizeNotAcceptable()
+    private function isSizeNotAcceptable(): bool
     {
         preg_match_all('/(\d+)([MG])$/i', MAX_FILE_SIZE_ALLOWED, $matches);
         $maxFileSizeToUpload = $matches[1][0];
@@ -51,17 +53,17 @@ class FileUpload
         return (int) $currentFileSize > (int) $maxFileSizeToUpload;
     }
 
-    private function isImage()
+    private function isImage(): int|false
     {
         return preg_match('/image/i', $this->type);
     }
 
-    public function getFileName()
+    public function getFileName(): string
     {
         return $this->name . '.' . $this->fileExtension;
     }
 
-    public function upload()
+    public function upload(): FileUpload
     {
         if($this->error != 0){
             throw new Exception('Sorry file did\'t upload successfuly');

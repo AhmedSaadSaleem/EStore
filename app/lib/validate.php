@@ -17,47 +17,47 @@ trait Validate
 
     ];
 
-    public function req($value)
+    public function req($value): bool
     {
         return $value != '' || !empty($value);
     }
 
-    public function num($value)
+    public function num($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['num'], $value);
     }
 
-    public function int($value)
+    public function int($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['int'], $value);
     }
 
-    public function float($value)
+    public function float($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['float'], $value);
     }
 
-    public function alpha($value)
+    public function alpha($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['alpha'], $value);
     }
 
-    public function alphanum($value)
+    public function alphanum($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['alphanum'], $value);
     }
 
-    public function eq($value, $matchAgainst)
+    public function eq($value, $matchAgainst): bool
     {
         return $value == $matchAgainst;
     }
 
-    public function eq_field($value, $otherFieldValue)
+    public function eq_field($value, $otherFieldValue): bool
     {
         return $value == $otherFieldValue;
     }
 
-    public function lt($value, $matchAgainst)
+    public function lt($value, $matchAgainst): bool
     {
         if(is_string($value)){
             return mb_strlen($value) < $matchAgainst;
@@ -66,7 +66,7 @@ trait Validate
         }
     }
 
-    public function gt($value, $matchAgainst)
+    public function gt($value, $matchAgainst): bool
     {
         if(is_string($value)){
             return mb_strlen($value) > $matchAgainst;
@@ -75,7 +75,7 @@ trait Validate
         }
     }
 
-    public function min($value, $min)
+    public function min($value, $min): bool
     {
         if(is_string($value)){
             return mb_strlen($value) >= $min;
@@ -84,7 +84,7 @@ trait Validate
         }
     }
 
-    public function max($value, $max)
+    public function max($value, $max): bool
     {
         if(is_string($value)){
             return mb_strlen($value) <= $max;
@@ -93,7 +93,7 @@ trait Validate
         }
     }
 
-    public function between($value, $min, $max)
+    public function between($value, $min, $max): bool
     {
         if(is_string($value)){
             return mb_strlen($value) >= $min && mb_strlen($value) <= $max;
@@ -102,7 +102,7 @@ trait Validate
         }
     }
 
-    public function floatlike($value, $beforeDP, $afterDP)
+    public function floatlike($value, $beforeDP, $afterDP): bool
     {
         if(!$this->float($value)){
             return false;
@@ -112,27 +112,27 @@ trait Validate
         return (bool) preg_match($pattern, $value);
     }
 
-    public function vDate($value)
+    public function vDate($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['vdate'], $value);
     }
 
-    public function email($value)
+    public function email($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['email'], $value);
     }
 
-    public function url($value)
+    public function url($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['url'], $value);
     }
 
-    public function address($value)
+    public function address($value): bool
     {
         return (bool) preg_match($this->_regexPatterns['address'], $value);
     }
 
-    public function isValid($roles, $inputType)
+    public function isValid($roles, $inputType): bool
     {
         $errors = [];
         if(!empty($roles)){

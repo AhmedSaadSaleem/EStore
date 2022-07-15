@@ -18,50 +18,50 @@ class Template
     }
 
     // TODO: implement better solution
-    public function swapTemplate($template)
+    public function swapTemplate($template): void
     {
         $this->_templateParts['template'] = $template;
     }
 
-    public function setActionViewFile($actionViewPath)
+    public function setActionViewFile($actionViewPath): void
     {
         $this->_action_view = $actionViewPath;
     }
 
-    public function setAppData($data)
+    public function setAppData($data): void
     {
         $this->_data = $data;
     }
 
-    public function setRegistry($registry)
+    public function setRegistry($registry): void
     {
         $this->_registry = $registry;
     }
 
-    public function __get($key)
+    public function __get($key): mixed
     {
         return $this->_registry->$key;
     }
 
-    private function renderTemplateHeaderStart()
+    private function renderTemplateHeaderStart(): void
     {
         extract($this->_data);
         require_once TEMPLATE_PATH . 'templateheaderstart.php';
     }
 
-    private function renderTemplateHeaderEnd()
+    private function renderTemplateHeaderEnd(): void
     {
         extract($this->_data);
         require_once TEMPLATE_PATH . 'templateheaderend.php';
     }
 
-    private function renderTemplateFooter()
+    private function renderTemplateFooter(): void
     {
         extract($this->_data);
         require_once TEMPLATE_PATH . 'templatefooter.php';
     }
 
-    private function renderTemplateBlocks()
+    private function renderTemplateBlocks(): void
     {
         if(!array_key_exists('template', $this->_templateParts)){
             trigger_error('Sorry you have to define template blocks', E_USER_WARNING);
@@ -81,7 +81,7 @@ class Template
         }
     }
 
-    private function renderHeaderResources()
+    private function renderHeaderResources(): void
     {
         $output = '';
         if(!array_key_exists('header_resources', $this->_templateParts)){
@@ -113,7 +113,7 @@ class Template
         echo $output;
     }
 
-    private function renderFooterResources()
+    private function renderFooterResources(): void
     {
         $output = '';
         if(!array_key_exists('footer_resources', $this->_templateParts)){
@@ -131,7 +131,7 @@ class Template
         echo $output;
     }
 
-    public function renderApp()
+    public function renderApp(): void
     {
         $this->renderTemplateHeaderStart();
         $this->renderHeaderResources();

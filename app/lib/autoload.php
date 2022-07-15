@@ -4,7 +4,7 @@ namespace PHPMVC\Lib;
 
 class AutoLoad
 {
-    public static function autoload($className)
+    public static function autoload($className): void
     {
         $className = str_replace('PHPMVC', '', $className);
         $className = str_replace('\\', '/', $className);

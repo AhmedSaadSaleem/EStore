@@ -7,7 +7,7 @@ use PHPMVC\Models\UserModel;
 
 class AuthController extends AbstractController
 {
-    public function loginAction()
+    public function loginAction(): void
     {
         $this->language->load('auth.login');
         $this->language->load('template.common');
@@ -31,7 +31,7 @@ class AuthController extends AbstractController
         $this->_view();
     }
 
-    public function logoutAction()
+    public function logoutAction(): void
     {
         $this->session->kill();
         $this->redirect('/auth/login');

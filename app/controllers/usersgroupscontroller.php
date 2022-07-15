@@ -14,7 +14,7 @@ class UsersGroupsController extends AbstractController
         'GroupName' => 'req|alphanum|between(3,30)'
     ];
 
-    public function defaultAction()
+    public function defaultAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('usersgroups.default');
@@ -22,7 +22,7 @@ class UsersGroupsController extends AbstractController
         $this->_view();
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('usersgroups.create');
@@ -56,7 +56,7 @@ class UsersGroupsController extends AbstractController
         $this->_view();
     }
 
-    public function editAction()
+    public function editAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
         $group = UserGroupModel::getByKey($id);
@@ -113,7 +113,7 @@ class UsersGroupsController extends AbstractController
         $this->_view();
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
         $group = UserGroupModel::getByKey($id);

@@ -28,7 +28,7 @@ class UsersController extends AbstractController
         'GroupId'       => 'req|int'
     ];
 
-    public function defaultAction()
+    public function defaultAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('users.default');
@@ -36,7 +36,7 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('users.create');
@@ -87,7 +87,7 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
-    public function editAction()
+    public function editAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 
@@ -124,7 +124,7 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 
@@ -151,7 +151,7 @@ class UsersController extends AbstractController
         $this->redirect('/users');
     }
 
-    public function checkUserExistsAjaxAction()
+    public function checkUserExistsAjaxAction(): void
     {
         if(isset($_POST['Username'])){
             header('content-type: text/plain');

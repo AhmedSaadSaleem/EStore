@@ -26,37 +26,37 @@ class AbstractController
     
     protected $_data = [];
 
-    public function setController($controllerName)
+    public function setController($controllerName): void
     {
         $this->_controller = $controllerName;
     }
 
-    public function setAction($actionName)
+    public function setAction($actionName): void
     {
         $this->_action = $actionName;
     }
 
-    public function setParams($params)
+    public function setParams($params): void
     {
         $this->_params = $params;
     }
 
-    public function setRegistry($registry)
+    public function setRegistry($registry): void
     {
         $this->_registry = $registry;
     }
 
-    public function setTemplate($template)
+    public function setTemplate($template): void
     {
         $this->_template = $template;
     }
 
-    public function __get($key)
+    public function __get($key): mixed
     {
         return $this->_registry->$key;
     }
     
-    protected function _view()
+    protected function _view(): void
     {
         $view = VIEWS_PATH . $this->_controller . DS . $this->_action . '.view.php';
         if($this->_action == FrontController::NOT_FOUND_ACTION || !file_exists($view)){

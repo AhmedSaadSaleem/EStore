@@ -15,7 +15,7 @@ class SuppliersController extends AbstractController
         'Address'       => 'req|address|max(50)'
     ];
 
-    public function defaultAction()
+    public function defaultAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('suppliers.default');
@@ -23,7 +23,7 @@ class SuppliersController extends AbstractController
         $this->_view();
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         $this->language->load('template.common');
         $this->language->load('suppliers.create');
@@ -60,7 +60,7 @@ class SuppliersController extends AbstractController
         $this->_view();
     }
 
-    public function editAction()
+    public function editAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 
@@ -96,7 +96,7 @@ class SuppliersController extends AbstractController
         $this->_view();
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $id = $this->filterInt($this->_params[0]);
 

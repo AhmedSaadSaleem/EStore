@@ -30,7 +30,7 @@ class ProductModel extends AbstractModel
 
     protected static $primaryKey = 'ProductId';
 
-    public static function getAll()
+    public static function getAll(): array|false
     {
         $sql = 'SELECT apl.*, apc.Name CategoryName FROM ' . self::$tableName . ' apl ';
         $sql .= 'INNER JOIN ' . ProductCategoryModel::getModelTableName() . ' apc ';

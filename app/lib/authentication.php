@@ -25,9 +25,9 @@ class Authentication
         $this->_session = $session;
     }
 
-    private function __clone(){}
+    private function __clone(): void{}
 
-    public static function getInstance(SessionManager $session)
+    public static function getInstance(SessionManager $session): Authentication
     {
         if(self::$instance === null){
             self::$instance = new self($session);
@@ -35,12 +35,12 @@ class Authentication
         return self::$instance;
     }
 
-    public function isAuthorized()
+    public function isAuthorized(): bool
     {
         return isset($this->_session->u);
     }
 
-    public function hasAccess($controller, $action)
+    public function hasAccess($controller, $action): bool
     {
         $url = '/' . $controller . '/' . $action;
         if(in_array($url, $this->_execludeRoutes) || in_array($url, $this->_session->u->privileges)){

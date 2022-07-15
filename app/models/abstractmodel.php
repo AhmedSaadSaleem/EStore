@@ -23,7 +23,7 @@ class AbstractModel
     protected static $tableSchema = [];
     protected static $primaryKey;
 
-    private function prepareValues(\PDOStatement &$stmt)
+    private function prepareValues(\PDOStatement &$stmt): void
     {
         foreach(static::$tableSchema as $columnName => $type)
         {
@@ -40,7 +40,7 @@ class AbstractModel
         }
     }
 
-    private static function buildNameParametersSQL()
+    private static function buildNameParametersSQL(): string
     {
         $namedParams = '';
         foreach(static::$tableSchema as $columnName => $type)
@@ -50,7 +50,7 @@ class AbstractModel
         return trim($namedParams, ', ');
     }
 
-    public function create()
+    public function create(): bool
     {
         $sql = 'INSERT INTO ' . static::$tableName . ' SET ' . self::buildNameParametersSQL();
         $stmt = DatabaseHandler::factory()->prepare($sql);
@@ -65,7 +65,7 @@ class AbstractModel
         }
     }
 
-    public function update()
+    public function update(): bool
     {
         $sql = 'UPDATE ' . static::$tableName . ' SET ' . self::buildNameParametersSQL() . ' WHERE ' . static::$primaryKey . ' = ' . $this->{static::$primaryKey};
         $stmt = DatabaseHandler::factory()->prepare($sql);
@@ -77,7 +77,7 @@ class AbstractModel
         }
     }
 
-    public function save($rimaryKeyCheck = true)
+    public function save($rimaryKeyCheck = true): bool
     {
         if(false === $rimaryKeyCheck){
             return $this->create();
@@ -85,14 +85,14 @@ class AbstractModel
         return $this->{static::$primaryKey} === null ? $this->create() : $this->update();
     }
 
-    public function delete()
+    public function delete(): bool
     {
         $sql = 'DELETE FROM ' . static::$tableName . ' WHERE ' . static::$primaryKey . ' = ' . $this->{static::$primaryKey};
         $stmt = DatabaseHandler::factory()->prepare($sql);
         return $stmt->execute();
     }
 
-    public static function getAll()
+    public static function getAll(): array|false
     {
         $sql = 'SELECT * FROM ' . static::$tableName;
         $stmt = DatabaseHandler::factory()->prepare($sql);
@@ -110,7 +110,7 @@ class AbstractModel
         
     }
 
-    public static function getByKey($pk)
+    public static function getByKey($pk): mixed
     {
         $sql = 'SELECT * FROM ' . static::$tableName . ' WHERE '. static::$primaryKey  . ' = "' . $pk . '"';
         $stmt = DatabaseHandler::factory()->prepare($sql);
@@ -128,7 +128,7 @@ class AbstractModel
         }
     }
 
-    public static function getBy($columns, $options = array())
+    public static function getBy($columns, $options = array()): array|false
     {
         $whereClausecolumns = array_keys($columns);
         $whereClauseValues = array_values($columns);
@@ -144,7 +144,7 @@ class AbstractModel
         return static::get($sql, $options);
     }
 
-    public static function get($sql, $options = array())
+    public static function get($sql, $options = array()): array|false
     {
         $stmt = DatabaseHandler::factory()->prepare($sql);
 
@@ -172,7 +172,7 @@ class AbstractModel
         }
     }
 
-    public static function getOne($sql, $options = array())
+    public static function getOne($sql, $options = array()): mixed
     {
         $result = static::get($sql, $options);
         return is_array($result) && !empty($result) ? array_shift($result) : false;

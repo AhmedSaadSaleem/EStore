@@ -6,7 +6,7 @@ class Language
     
     private $_dictionary = [];
 
-    public function load($path)
+    public function load($path): void
     {
         $lang = APP_DEFAULT_LANGUAGE;
         if(isset($_SESSION['lang'])){
@@ -26,12 +26,12 @@ class Language
         }
     }
 
-    public function getDictionary()
+    public function getDictionary(): array
     {
         return $this->_dictionary;
     }
 
-    public function feedKey($key, $data)
+    public function feedKey($key, $data): mixed
     {
         if(array_key_exists($key, $this->_dictionary)){
             array_unshift($data, $this->_dictionary[$key]);
@@ -39,7 +39,7 @@ class Language
         }
     }
 
-    public function get($key)
+    public function get($key): mixed
     {
         if(array_key_exists($key, $this->_dictionary)){
             return $this->_dictionary[$key];

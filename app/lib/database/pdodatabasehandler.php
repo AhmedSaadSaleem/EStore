@@ -13,7 +13,7 @@ class PDODatabaseHandler extends DatabaseHandler
         self::init();
     }
 
-    protected static function init()
+    protected static function init(): void
     {
         $options = array(
             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
@@ -29,7 +29,7 @@ class PDODatabaseHandler extends DatabaseHandler
             
         }
     }
-    protected static function getInstance()
+    protected static function getInstance(): \PDO
     {
         if(self::$_handler === null){
             new self();

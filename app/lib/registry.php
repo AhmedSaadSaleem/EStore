@@ -9,9 +9,9 @@ class Registry
     
     private function __construct() {}
 
-    private function __clone() {}
+    private function __clone(): void {}
 
-    public static function getInstance()
+    public static function getInstance(): mixed
     {
         if(self::$_instance === null){
             self::$_instance = new self();
@@ -20,12 +20,12 @@ class Registry
         return self::$_instance;
     }
 
-    public function __set($key, $object)
+    public function __set($key, $object): void
     {
         $this->$key = $object;
     }
 
-    public function __get($key)
+    public function __get($key): mixed
     {
         return $this->$key;
     }
