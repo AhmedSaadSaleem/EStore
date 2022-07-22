@@ -2,14 +2,14 @@
 
 namespace PHPMVC\Models;
 
-use PDOException;
+use PDO, PDOStatement, PDOException;
 use PHPMVC\Lib\Database\DatabaseHandler;
 
 class AbstractModel
 {
-    const DATA_TYPE_BOOL    = \PDO::PARAM_BOOL;
-    const DATA_TYPE_STR     = \PDO::PARAM_STR;
-    const DATA_TYPE_INT     = \PDO::PARAM_INT;
+    const DATA_TYPE_BOOL    = PDO::PARAM_BOOL;
+    const DATA_TYPE_STR     = PDO::PARAM_STR;
+    const DATA_TYPE_INT     = PDO::PARAM_INT;
     const DATA_TYPE_DECIMAL = 4;
     const DATA_TYPE_DATE    = 5;
 
@@ -23,7 +23,7 @@ class AbstractModel
     protected static $tableSchema = [];
     protected static $primaryKey;
 
-    private function prepareValues(\PDOStatement &$stmt): void
+    private function prepareValues(PDOStatement &$stmt): void
     {
         foreach(static::$tableSchema as $columnName => $type)
         {
@@ -99,9 +99,9 @@ class AbstractModel
 
         if($stmt->execute() === true){
             if(method_exists(get_called_class(), '__construct')){
-                $result = $stmt->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
+                $result = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
             } else {
-                $result = $stmt->fetchAll(\PDO::FETCH_CLASS, get_called_class());
+                $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_called_class());
             }
             return  (is_array($result) && !empty($result))? $result : false ;
         } else {
@@ -118,9 +118,9 @@ class AbstractModel
         if($stmt->execute() === true)
         {
             if(method_exists(get_called_class(), '__construct')){
-                $obj = $stmt->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
+                $obj = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
             } else {
-                $obj = $stmt->fetchAll(\PDO::FETCH_CLASS, get_called_class());
+                $obj = $stmt->fetchAll(PDO::FETCH_CLASS, get_called_class());
             }
             return !empty($obj) ? array_shift($obj) : false;
         } else {
@@ -162,9 +162,9 @@ class AbstractModel
 
         if($stmt->execute() === true){
             if(method_exists(get_called_class(), '__construct')){
-                $result = $stmt->fetchAll(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
+                $result = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class(), array_keys(static::$tableSchema));
             } else {
-                $result = $stmt->fetchAll(\PDO::FETCH_CLASS, get_called_class());
+                $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_called_class());
             }
             return (is_array($result) && !empty($result))? $result : false;
         } else {
