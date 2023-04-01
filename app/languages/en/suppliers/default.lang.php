@@ -6,6 +6,7 @@ $_['text_add_item'] = 'اضافة مورد جديد';
 $_['text_table_name'] = 'اسم المورد';
 $_['text_table_email'] = 'البريد الإلكتروني';
 $_['text_table_phone_number'] = 'رقم التليفون';
+$_['text_table_address'] = 'Address';
 $_['text_table_control'] = 'التحكم';
 $_['text_table_control_edit'] = 'تعديل';
 $_['text_table_control_delete'] = 'حذف';

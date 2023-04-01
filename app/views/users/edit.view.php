@@ -1,4 +1,4 @@
-<div class="container">
+<div class="users-edit-view">
 <form method="POST" enctype="application/x-www-form-urlencoded">
     <fieldset>
         <legend><?= $text_legend ?></legend>

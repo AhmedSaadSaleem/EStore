@@ -95,10 +95,10 @@ class Template
                 foreach($css as $cssKey => $path){
                     if(str_contains($cssKey, 'pre'))
                     {
-                        $output .= '<link type="text/css" rel="preconnect" href="' . $path . '" />' ;
+                        $output .= "\t" . '<link type="text/css" rel="preconnect" href="' . $path . '" />' . "\n";
                     }
                     
-                    $output .= '<link type="text/css" rel="stylesheet" href="' . $path . '" />' ;
+                    $output .= "\t" . '<link type="text/css" rel="stylesheet" href="' . $path . '" />' . "\n";
                 }
             }
 
@@ -106,7 +106,7 @@ class Template
             $js = $headers['js'];
             if(!empty($js)){
                 foreach($js as $jsKey => $path){
-                    $output .= '<script type="javascript" src="' . $path . '"></script>' ;
+                    $output .= "\t" . '<script type="javascript" src="' . $path . '"></script>' . "\n";
                 }
             }
         }
@@ -124,7 +124,7 @@ class Template
             // Genrate JS Scripts
             if(!empty($resources)){
                 foreach($resources as $resourcesKey => $path){
-                    $output .= '<script src="' . $path . '"></script>' ;
+                    $output .= "\t" . '<script src="' . $path . '"></script>' . "\n";
                 }
             }
         }

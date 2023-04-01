@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="title-bar">
+    <div class="title-bar mb-15 p-20 rad-10">
         <div class="container">
-            <h1><a href="/"><?= $text_dashboard ?></a><span>></span><a href="#"><?= $title ?></a></h1>
+            <a class="c-blue" href="#"><?= $title ?></a>
         </div>
     </div>
-</div>

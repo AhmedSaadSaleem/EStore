@@ -45,6 +45,8 @@ class Authentication
         $url = '/' . $controller . '/' . $action;
         if(in_array($url, $this->_execludeRoutes) || in_array($url, $this->_session->u->privileges)){
             return true;
+        } elseif ($url === '/index/default') {
+            return true;
         }
         return false;
     }

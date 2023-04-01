@@ -1,4 +1,4 @@
-<div class="container">
+<div class="users-default-view">
     <a href="/users/create" class="button"><?= $text_add_item ?></a>
     <table class="data-table">
         <head>

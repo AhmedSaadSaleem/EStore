@@ -1,3 +1,3 @@
 </head>
-<body>
+<body class="page-wrapper">
     

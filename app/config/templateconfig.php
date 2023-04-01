@@ -3,14 +3,16 @@
 return [
     'template' => [
         'header'    => TEMPLATE_PATH . 'header.php',
-        'nav'       => TEMPLATE_PATH . 'nav.php',
+        'sidebar'   => TEMPLATE_PATH . 'sidebar.php',
+        'content'   => TEMPLATE_PATH . 'content.php',
         'titlebar'  => TEMPLATE_PATH . 'titlebar.php',
+        'messages'  => TEMPLATE_PATH . 'messages.php',
         ':view'     => 'action_view',
-        'footer'   => TEMPLATE_PATH . 'footer.php'
+        'footer'    => TEMPLATE_PATH . 'footer.php'
     ],
     'header_resources' => [
         'css' => [
-            'normalize'     => CSS . 'normalize.css',
+            'microvolt'     => CSS . 'microvolt.css',
             'main'          => CSS . 'main.css',
             'fawsome'       => CSS . 'all.min.css',
             'pre_gfonts'    => 'https://fonts.googleapis.com',
